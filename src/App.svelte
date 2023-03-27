@@ -60,6 +60,7 @@ Fmaj7      132211    132111
         frets: i[1].split("").map((i) => parseInt(i, 10)),
         fingers: i[2]
           ?.split("")
+          .map((i) => i.toLowerCase() === "x" ? "0" : i)
           .map((i) => parseInt(i, 10))
           .filter((i) => !isNaN(i)),
         shift: parseInt(i[3], 10) || 0,
