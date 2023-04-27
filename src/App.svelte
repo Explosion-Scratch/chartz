@@ -29,8 +29,8 @@ Fmaj7      132211    132111
   let printing = false;
 
   onMount(() => {
-    if (localStorage.chordText){
-      chordText = localStorage.chordText;
+    if (localStorage.chordtext){
+      chordtext = localStorage.chordtext;
     }
 
     window.addEventListener("beforeprint", () => {
@@ -103,7 +103,7 @@ Fmaj7      132211    132111
     return group;
   }
   function save(){
-    localStorage.chordText = chordtext;
+    localStorage.chordtext = chordtext;
   }
   let title = "The Girl from Ipanema";
 </script>
