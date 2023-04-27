@@ -29,6 +29,10 @@ Fmaj7      132211    132111
   let printing = false;
 
   onMount(() => {
+    if (localStorage.chordText){
+      chordText = localStorage.chordText;
+    }
+
     window.addEventListener("beforeprint", () => {
       printing = true;
     });
@@ -98,6 +102,9 @@ Fmaj7      132211    132111
 
     return group;
   }
+  function save(){
+    localStorage.chordText = chordtext;
+  }
   let title = "The Girl from Ipanema";
 </script>
 
@@ -142,7 +149,7 @@ Fmaj7      132211    132111
     <label>
       <input type="checkbox" bind:checked={useFont} /> Use real book font
     </label>
-    <textarea bind:value={chordtext} />
+    <textarea bind:value={chordtext} on:keyup={save} />
     <button
       class="coolbutton"
       on:click={() => ((printing = true), tick().then(() => window.print()))}
